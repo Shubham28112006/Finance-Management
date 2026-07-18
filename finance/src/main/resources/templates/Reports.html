@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Generate Report</title>
+</head>
+<body>
+
+<h2>Finance Report</h2>
+
+<form action="/report/generate" method="post">
+
+    <label>Start Month</label>
+    <input type="month" name="startMonth" required>
+
+    <br><br>
+
+    <label>End Month</label>
+    <input type="month" name="endMonth" required>
+
+    <br><br>
+
+    <input type="submit" value="Generate Report">
+
+</form>
+
+</body>
+</html>

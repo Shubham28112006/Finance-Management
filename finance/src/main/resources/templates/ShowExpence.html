@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Records</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:linear-gradient(135deg,#4f46e5,#7c3aed,#2563eb);
+            padding:40px;
+        }
+
+        .container{
+            width:95%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        h1{
+            text-align:center;
+            color:#fff;
+            font-size:38px;
+            margin-bottom:30px;
+            text-shadow:2px 2px 10px rgba(0,0,0,.3);
+        }
+
+        .table-box{
+            background:#fff;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow:0 15px 35px rgba(0,0,0,.2);
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        thead{
+            background:linear-gradient(to right,#2563eb,#3b82f6);
+            color:#fff;
+        }
+
+        thead th{
+            padding:18px;
+            font-size:16px;
+            letter-spacing:1px;
+        }
+
+        tbody td{
+            padding:16px;
+            text-align:center;
+            border-bottom:1px solid #ececec;
+        }
+
+        tbody tr:nth-child(even){
+            background:#f8fafc;
+        }
+
+        tbody tr:hover{
+            background:#e0f2fe;
+            transition:.3s;
+        }
+
+        .total-row{
+            background:#16a34a;
+            color: #2563eb;
+            font-weight:bold;
+            font-size:18px;
+        }
+
+        .total-row td{
+            padding:18px;
+        }
+
+        .action-btns{
+            display:flex;
+            justify-content:center;
+            gap:10px;
+        }
+
+        .update-btn,
+        .delete-btn{
+            border:none;
+            color:white;
+            padding:10px 18px;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:14px;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        .update-btn{
+            background:#2563eb;
+        }
+
+        .update-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
+
+        .delete-btn{
+            background:#dc2626;
+        }
+
+        .delete-btn:hover{
+            background:#b91c1c;
+            transform:translateY(-2px);
+        }
+
+        .back-btn{
+            display:block;
+            width:230px;
+            margin:35px auto;
+            text-align:center;
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:14px;
+            border-radius:10px;
+            font-size:18px;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        .back-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-3px);
+        }
+
+        @media(max-width:768px){
+
+            body{
+                padding:20px;
+            }
+
+            h1{
+                font-size:28px;
+            }
+
+            .table-box{
+                overflow-x:auto;
+            }
+
+            table{
+                min-width:800px;
+            }
+
+            .action-btns{
+                flex-direction:column;
+            }
+
+            .update-btn,
+            .delete-btn{
+                width:100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💰 Expense Records</h1>
+
+    <div class="table-box">
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Amount (₹)</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr th:each="u : ${ulist}">
+
+                <td th:text="${u.id}"></td>
+
+                <td>
+                    ₹ <span th:text="${u.amount}"></span>
+                </td>
+
+                <td th:text="${u.description}"></td>
+
+                <td th:text="${u.date}"></td>
+
+                <td>
+
+                    <form class="action-btns" action="/expense/update">
+
+                        <input type="hidden"
+                               name="id"
+                               th:value="${u.id}"/>
+                        <button class="update-btn"
+                                type="submit"
+                                name="sub"
+                                value="Update">
+                            ✏ Update
+                        </button>
+
+                        <button class="delete-btn"
+                                type="submit"
+                                name="sub"
+                                value="Delete">
+                            🗑 Delete
+                        </button>
+
+                    </form>
+
+                </td>
+
+            </tr>
+
+            <tr class="total-row">
+
+                <td colspan="2">
+                    Total Expense
+                </td>
+
+                <td>
+                    ₹ <span th:text="${totalexpense}"></span>
+                </td>
+
+                <td colspan="2"></td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <a th:href="@{/dashboard}" class="back-btn">
+        ⬅ Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

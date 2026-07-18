@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Income</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#4f46e5,#06b6d4);
+        }
+
+        .container{
+            width:450px;
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#2d4fff;
+            margin-bottom:25px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            font-weight:600;
+            margin-bottom:8px;
+            color:#444;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:15px;
+        }
+
+        input:focus{
+            outline:none;
+            border-color:#2d4fff;
+        }
+
+        .btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:#2d4fff;
+            color:white;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#1938d3;
+        }
+
+        .back-btn{
+            display:block;
+            text-align:center;
+            text-decoration:none;
+            margin-top:15px;
+            color:#2d4fff;
+            font-weight:bold;
+        }
+
+        .success{
+            color:green;
+            text-align:center;
+            margin-bottom:15px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>💰 Add Income</h2>
+
+    <p class="success" th:text="${msg}"></p>
+
+    <form action="/income/addin" method="post">
+
+        <div class="form-group">
+            <label>Income Source</label>
+            <input type="text"
+                   name="source"
+                   placeholder="Salary, Business, Freelancing..."
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="number"
+                   step="0.01"
+                   name="amount"
+                   placeholder="Enter Amount"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date"
+                   name="date"
+                   required>
+        </div>
+
+        <input type="submit"
+               value="Add Income"
+               class="btn">
+
+    </form>
+
+    <a href="/templates/UserDashboard.html" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
