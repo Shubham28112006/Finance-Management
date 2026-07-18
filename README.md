@@ -1,6 +1,6 @@
 # 💰 Finance Management System
 
-A full-stack **Finance Management System** developed using **Spring Boot, Java, HTML, CSS, JavaScript, Thymeleaf, and MySQL (XAMPP)**. The application helps users efficiently manage their personal finances by tracking income, expenses, and generating financial reports through a secure and user-friendly dashboard.
+A full-stack **Finance Management System** developed using **Spring Boot, Java, HTML, CSS,Thymeleaf, and MySQL (XAMPP)**. The application helps users efficiently manage their personal finances by tracking income, expenses, and generating financial reports through a secure and user-friendly dashboard.
 
 ---
 
