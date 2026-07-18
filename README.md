@@ -85,6 +85,7 @@ FinanceManagementSystem
 │   ├── UserController.java
 │   ├── IncomeController.java
 │   └── ExpenseController.java
+|   └── ReportController
 │
 ├── templates
 │   ├── AdminDashboard.html
@@ -96,6 +97,10 @@ FinanceManagementSystem
 │   ├── Expense.html
 │   ├── ShowIncome.html
 │   └── ShowExpence.html
+|   └── UpdateExpence.html
+|   └── UpdateIncome.html
+|   └── Reports.html
+|   └── ReportResult.html
 │
 └── FinanceApplication.java
 ```
