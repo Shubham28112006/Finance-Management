@@ -128,7 +128,7 @@ Main Tables
 ## 1 Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/FinanceManagementSystem.git
+git clone https://github.com/Shubham28112006/Finance-Management.git
 ```
 
 ---
